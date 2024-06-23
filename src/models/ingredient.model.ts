@@ -5,4 +5,5 @@ export interface IngredientModel {
     isVegeterian : number
     createdAt : string,
     updatedAt : string
+    oldIngredientId?: number
 }

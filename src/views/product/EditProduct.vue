@@ -31,7 +31,7 @@ function updateProduct(){
 <template>
     <div v-if = "product">
         <h1 class="h3">Edit Product</h1>
-        <RouterLink class="btn btn-danger mb-3" to="/product">
+        <RouterLink class="btn btn-danger mb-3" to="/product/new">
                 <i class="fa-solid fa-rotate-left"></i> Return to product list
     </RouterLink> 
         <div class="mb-3">
@@ -73,6 +73,15 @@ function updateProduct(){
     <label for="updated" class="form-label">updatedAt : </label>
     <input type="text" class="form-control" id="updated" :value="formatDate(product.updatedAt)"  disabled>
   </div>
+
+  <div class="mb-3">
+            <label for="categoryId" class="form-label">Category:</label>
+            <select class="form-control" id="categoryId" v-model="product.categoryId">
+            <option :value="1">1</option>
+            <option :value="2">2</option>
+            <option :value="3">3</option>
+                </select>
+        </div>
 
   <button type="button" class="btn btn-success" @click="updateProduct">
     <i class="fa-solid fa-save"></i> Save
