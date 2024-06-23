@@ -12,4 +12,6 @@ export interface ProductIngredientModel{
     name: string
     ingredients : IngredientModel[]
     oldIngredientId : number
+    isVegan: string
+    isVegeterian:string
 }

@@ -15,12 +15,12 @@ export class CategoryService {
         return await useAxios(`/category/${id}`);
     }
 
-    static async updateCategory(id: number, data : CategoryModel | undefined) {
-        return await useAxios(`/category/${id}`, 'put', data );
+    static async updateCategory(id: number, data: CategoryModel | undefined) {
+        return await useAxios(`/category/${id}`, 'put', data);
     }
 
-    static async saveCategory(data : any) {
-        return await useAxios('/category', 'post', data );
+    static async saveCategory(data: any) {
+        return await useAxios('/category', 'post', data);
     }
 
 }

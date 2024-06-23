@@ -22,42 +22,44 @@ import { ref } from 'vue';
     <RouterLink class="btn btn-success mb-3" to="/ingredient/new">
                 <i class="fa-solid fa-plus"></i> Add new Ingredient
     </RouterLink> 
-    <table class="table">
-  <thead>
+    <table class="table table-striped table-hover">
+  <thead class="table-dark">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Is Vegan</th>
-      <th scope="col">Is vegeterian</th>
-      <th scope="col">createdAt</th>
-      <th scope="col">updatedAt</th>
-      <th scope="col">option</th>
-
+      <th scope="col">Is Vegetarian</th>
+      <th scope="col">Created At</th>
+      <th scope="col">Updated At</th>
+      <th scope="col">Options</th>
     </tr>
   </thead>
   <tbody>
-    <tr v-for="t in ingredient"> 
+    <tr v-for="t in ingredient" :key="t.ingredientId">
       <th scope="row">{{ t.ingredientId }}</th>
-      <td>{{t.name}}</td>
-      <td>{{ t.isVegan ? 'Yes' : 'No' }}</td>
-      <td>{{ t.isVegeterian ? 'Yes' : 'No' }}</td>
-      <td>{{formatDate(t.createdAt)}}</td>
-      <td>{{formatDate(t.updatedAt)}}</td>
+      <td>{{ t.name }}</td>
       <td>
-        <div class="btn-group"> 
-            <RouterLink class="btn btn-sm btn-primary" :to="`/ingredient/${t.ingredientId}`">
-                <i class="fa-solid fa-circle-info"></i>
-            </RouterLink>  
-            <button type="button" class="btn btn-sm btn-danger" @click="removeIngredient(t)">
-                <i class="fa-solid fa-trash"></i>
-            </button>
-             
+        <i :class="t.isVegan ? 'fa-solid fa-check text-success' : 'fa-solid fa-times text-danger'"></i>
+      </td>
+      <td>
+        <i :class="t.isVegeterian ? 'fa-solid fa-check text-success' : 'fa-solid fa-times text-danger'"></i>
+      </td>
+      <td>{{ formatDate(t.createdAt) }}</td>
+      <td>{{ formatDate(t.updatedAt) }}</td>
+      <td>
+        <div class="btn-group">
+          <RouterLink class="btn btn-sm btn-primary" :to="`/ingredient/${t.ingredientId}`">
+            <i class="fa-solid fa-circle-info"></i> Details
+          </RouterLink>
+          <button type="button" class="btn btn-sm btn-danger ms-2" @click="removeIngredient(t)">
+            <i class="fa-solid fa-trash"></i> Delete
+          </button>
         </div>
       </td>
     </tr>
-    
   </tbody>
 </table>
+
    </div>
    <div v-else> Ingredient are beeing loaded... Please wait</div>
 

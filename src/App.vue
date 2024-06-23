@@ -17,15 +17,14 @@
         <li class="nav-item">
           <RouterLink class="nav-link" to="/">Home</RouterLink>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li class="nav-item">
+        <li class="nav-item">
           <RouterLink class="nav-link" to="/product">Product</RouterLink>
         </li>
-        <li><hr class="dropdown-divider"></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Other
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li class="nav-item">
           <RouterLink class="nav-link" to="/ingredient">Ingredient</RouterLink>
         </li>

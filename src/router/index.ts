@@ -55,7 +55,7 @@ const router = createRouter({
       path: '/ingredient/new',
       name: 'new-ingredient',
       component: NewIngredient
-      
+
     },
     {
       path: '/category',
@@ -72,7 +72,7 @@ const router = createRouter({
       path: '/category/new',
       name: 'new-category',
       component: NewCategory
-      
+
     },
     {
       path: '/user',
@@ -89,7 +89,7 @@ const router = createRouter({
       path: '/user/new',
       name: 'new-user',
       component: NewUser
-      
+
     },
     {
       path: '/productingredient',
@@ -106,11 +106,11 @@ const router = createRouter({
       path: '/productingredient/new',
       name: 'new-productingredient',
       component: NewProductIngredient
-      
+
     }
 
 
-    
+
   ]
 })
 

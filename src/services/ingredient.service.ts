@@ -14,12 +14,12 @@ export class IngredientService {
         return await useAxios(`/ingredient/${id}`);
     }
 
-    static async updateIngredient(id: number, data : IngredientModel | undefined) {
-        return await useAxios(`/ingredient/${id}`, 'put', data );
+    static async updateIngredient(id: number, data: IngredientModel | undefined) {
+        return await useAxios(`/ingredient/${id}`, 'put', data);
     }
 
-    static async saveIngredient(data : any) {
-        return await useAxios('/ingredient', 'post', data );
+    static async saveIngredient(data: any) {
+        return await useAxios('/ingredient', 'post', data);
     }
 
 }

@@ -16,12 +16,12 @@ export class UserService {
         return await useAxios(`/user/${id}`);
     }
 
-    static async updateUser(id: number, data : UserModel | undefined) {
-        return await useAxios(`/user/${id}`, 'put', data );
+    static async updateUser(id: number, data: UserModel | undefined) {
+        return await useAxios(`/user/${id}`, 'put', data);
     }
 
-    static async saveUser(data : any) {
-        return await useAxios('/user', 'post', data );
+    static async saveUser(data: any) {
+        return await useAxios('/user', 'post', data);
     }
 
 }

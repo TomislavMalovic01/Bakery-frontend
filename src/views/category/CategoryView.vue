@@ -22,38 +22,36 @@ import { ref } from 'vue';
     <RouterLink class="btn btn-success mb-3" to="/category/new">
                 <i class="fa-solid fa-plus"></i> Add new Category
     </RouterLink> 
-    <table class="table">
-  <thead>
+   <table class="table table-striped table-hover">
+  <thead class="table-dark">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
-      <th scope="col">createdAt</th>
-      <th scope="col">updatedAt</th>
-      <th scope="col">option</th>
-
+      <th scope="col">Created At</th>
+      <th scope="col">Updated At</th>
+      <th scope="col">Options</th>
     </tr>
   </thead>
   <tbody>
-    <tr v-for="t in category"> 
+    <tr v-for="t in category" :key="t.categoryId">
       <th scope="row">{{ t.categoryId }}</th>
-      <td>{{t.name}}</td>
-      <td>{{formatDate(t.createdAt)}}</td>
-      <td>{{formatDate(t.updatedAt)}}</td>
+      <td>{{ t.name }}</td>
+      <td>{{ formatDate(t.createdAt) }}</td>
+      <td>{{ formatDate(t.updatedAt) }}</td>
       <td>
-        <div class="btn-group"> 
-            <RouterLink class="btn btn-sm btn-primary" :to="`/category/${t.categoryId}`">
-                <i class="fa-solid fa-circle-info"></i>
-            </RouterLink>  
-            <button type="button" class="btn btn-sm btn-danger" @click="removeCategory(t)">
-                <i class="fa-solid fa-trash"></i>
-            </button>
-             
+        <div class="btn-group">
+          <RouterLink class="btn btn-sm btn-primary" :to="`/category/${t.categoryId}`">
+            <i class="fa-solid fa-circle-info"></i> Details
+          </RouterLink>
+          <button type="button" class="btn btn-sm btn-danger ms-2" @click="removeCategory(t)">
+            <i class="fa-solid fa-trash"></i> Delete
+          </button>
         </div>
       </td>
     </tr>
-    
   </tbody>
 </table>
+
    </div>
    <div v-else> Category are beeing loaded... Please wait</div>
 

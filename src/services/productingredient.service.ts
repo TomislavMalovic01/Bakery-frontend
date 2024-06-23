@@ -17,16 +17,16 @@ export class ProductIngredientService {
         return await useAxios(`/productingredient/${id}`);
     }
 
-    static async updateProductIngredient(productId: number, ingredientId: number, data : any) {
-        console.log("FRONT SERVIS", productId, ingredientId, data )
+    static async updateProductIngredient(productId: number, ingredientId: number, data: any) {
+        console.log("FRONT SERVIS", productId, ingredientId, data)
         return await useAxios(`/productingredient/${productId}/${ingredientId}`, 'put', data);
     }
 
-    static async saveProductIngredient(data : any) {
-        return await useAxios('/productingredient', 'post', data );
+    static async saveProductIngredient(data: any) {
+        return await useAxios('/productingredient', 'post', data);
     }
 
-    static async deleteProductIngredientInEdit(productId: number , oldIngredientId: number) {
+    static async deleteProductIngredientInEdit(productId: number, oldIngredientId: number) {
         return await useAxios(`/productingredient/delete/${productId}/${oldIngredientId}`, 'delete');
     }
 }

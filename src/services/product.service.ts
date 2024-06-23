@@ -14,12 +14,12 @@ export class ProductService {
         return await useAxios(`/product/${id}`);
     }
 
-    static async updateProduct(id: number, data : ProductModel | undefined) {
-        return await useAxios(`/product/${id}`, 'put', data );
+    static async updateProduct(id: number, data: ProductModel | undefined) {
+        return await useAxios(`/product/${id}`, 'put', data);
     }
 
-    static async saveProduct(data : any) {
-        return await useAxios('/product', 'post', data );
+    static async saveProduct(data: any) {
+        return await useAxios('/product', 'post', data);
     }
 
 }
