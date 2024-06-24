@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import ProductView from '@/views/product/ProductView.vue'
 import EditProduct from '../views/product/EditProduct.vue'
 import NewProduct from '@/views/product/NewProduct.vue'
@@ -9,20 +8,21 @@ import NewIngredient from '../views/ingredient/NewIngredient.vue'
 import CategoryView from '@/views/category/CategoryView.vue'
 import EditCategory from '@/views/category/EditCategory.vue'
 import NewCategory from '@/views/category/NewCategory.vue'
-import UserView from '@/views/user/UserView.vue'
-import EditUser from '@/views/user/EditUser.vue'
-import NewUser from '@/views/user/NewUser.vue'
 import ProductIngredientView from '@/views/productingredient/ProductIngredientView.vue'
 import EditProductIngredient from '@/views/productingredient/EditProductIngredient.vue'
 import NewProductIngredient from '@/views/productingredient/NewProductIngredient.vue'
-
+import LoginView from '../views/LoginView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      redirect: '/product',
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginView
     },
     {
       path: '/product',
@@ -75,23 +75,6 @@ const router = createRouter({
 
     },
     {
-      path: '/user',
-      name: 'user',
-      component: UserView
-    },
-    {
-      path: '/user/:id',
-      name: 'edit-user',
-      component: EditUser,
-      props: true
-    },
-    {
-      path: '/user/new',
-      name: 'new-user',
-      component: NewUser
-
-    },
-    {
       path: '/productingredient',
       name: 'productingredient',
       component: ProductIngredientView
@@ -108,6 +91,7 @@ const router = createRouter({
       component: NewProductIngredient
 
     }
+
 
 
 

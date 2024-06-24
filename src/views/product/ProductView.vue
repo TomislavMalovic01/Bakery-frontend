@@ -41,7 +41,7 @@ import { ref } from 'vue';
       <th scope="row">{{ t.productId }}</th>
       <td>{{ t.name }}</td>
       <td>{{ t.description }}</td>
-      <td>{{ t.price }}</td>
+      <td>{{ t.price + "$"}}</td>
       <td>{{ t.energyValiue }}</td>
       <td>{{ t.unit }}</td>
       <td>{{ t.categoryId }}</td>
