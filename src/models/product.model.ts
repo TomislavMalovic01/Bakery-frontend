@@ -9,5 +9,6 @@ export interface ProductModel{
     energyValiue : string
     unit : string
     categoryId : number
+    image:string
 }
 

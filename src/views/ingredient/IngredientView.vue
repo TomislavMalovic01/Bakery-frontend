@@ -19,7 +19,7 @@ import { ref } from 'vue';
 <template>
    <div v-if="ingredient">
     <h1 class="h3">Ingredient</h1>
-    <RouterLink class="btn btn-success mb-3" to="/ingredient/new">
+    <RouterLink class="btn btn-success mb-3" to="/admin-panel/ingredient/new">
                 <i class="fa-solid fa-plus"></i> Add new Ingredient
     </RouterLink> 
     <table class="table table-striped table-hover">
@@ -48,7 +48,7 @@ import { ref } from 'vue';
       <td>{{ formatDate(t.updatedAt) }}</td>
       <td>
         <div class="btn-group">
-          <RouterLink class="btn btn-sm btn-primary" :to="`/ingredient/${t.ingredientId}`">
+          <RouterLink class="btn btn-sm btn-primary" :to="`/admin-panel/ingredient/${t.ingredientId}`">
             <i class="fa-solid fa-circle-info"></i> Details
           </RouterLink>
           <button type="button" class="btn btn-sm btn-danger ms-2" @click="removeIngredient(t)">

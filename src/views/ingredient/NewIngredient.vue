@@ -15,7 +15,7 @@ const ingredient = ref<any>({
 function saveIngredient() {
     IngredientService.saveIngredient(ingredient.value).then(rsp => {
         router.push({ 
-            path: '/ingredient' 
+            path: '/admin-panel/ingredient' 
         });
     })
 }
@@ -24,7 +24,7 @@ function saveIngredient() {
 <template>
     <div v-if="ingredient">
         <h1 class="h3">Create Ingredient</h1>
-        <RouterLink class="btn btn-danger mb-3" to="/ingredient">
+        <RouterLink class="btn btn-danger mb-3" to="/admin-panel/ingredient">
             <i class="fa-solid fa-rotate-left"></i> Return to ingredient list
         </RouterLink> 
 

@@ -20,7 +20,7 @@ IngredientService.getIngredientById(id).then(rsp => ingredient.value = rsp.data)
 function updateIngredient(){
     IngredientService.updateIngredient(id , ingredient.value).then(rsp=>{
         router.push({
-            path:'/ingredient'
+            path:'/admin-panel/ingredient'
         })
     })
 }
@@ -31,7 +31,7 @@ function updateIngredient(){
 <template>
     <div v-if = "ingredient">
         <h1 class="h3">Edit Ingredient</h1>
-        <RouterLink class="btn btn-danger mb-3" to="/ingredient">
+        <RouterLink class="btn btn-danger mb-3" to="/admin-panel/ingredient">
                 <i class="fa-solid fa-rotate-left"></i> Return to ingredient list
     </RouterLink> 
         <div class="mb-3">
@@ -72,5 +72,4 @@ function updateIngredient(){
 
 
     {{ ingredient }}
-</template>import type { IngredientModel } from '@/models/ingredient.model';
-import { IngredientService } from '@/services/ingredient.service';
+</template>

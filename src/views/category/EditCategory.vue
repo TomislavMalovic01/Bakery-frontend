@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import {formatDate} from '@/services/main.service'
 import type { CategoryModel } from '@/models/category.model';
-import { CategoryService } from '@/services/category.service copy';
+import { CategoryService } from '@/services/category.service';
 
 
 
@@ -20,7 +20,7 @@ CategoryService.getCategoryById(id).then(rsp => category.value = rsp.data)
 function updateCategory(){
     CategoryService.updateCategory(id , category.value).then(rsp=>{
         router.push({
-            path:'/category'
+            path:'/admin-panel/category'
         })
     })
 }
@@ -31,7 +31,7 @@ function updateCategory(){
 <template>
     <div v-if = "category">
         <h1 class="h3">Edit Category</h1>
-        <RouterLink class="btn btn-danger mb-3" to="/category">
+        <RouterLink class="btn btn-danger mb-3" to="/admin-panel/category">
                 <i class="fa-solid fa-rotate-left"></i> Return to Category list
     </RouterLink> 
         <div class="mb-3">

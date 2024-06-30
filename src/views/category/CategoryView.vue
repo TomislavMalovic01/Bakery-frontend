@@ -1,6 +1,6 @@
 <script setup lang="ts"> //vue setup se zove ovaj nacin pisanje koda
 import type { CategoryModel } from '@/models/category.model';
-import { CategoryService } from '@/services/category.service copy';
+import { CategoryService } from '@/services/category.service';
 import { formatDate } from '@/services/main.service';
 
 
@@ -19,7 +19,7 @@ import { ref } from 'vue';
 <template>
    <div v-if="category">
     <h1 class="h3">Category</h1>
-    <RouterLink class="btn btn-success mb-3" to="/category/new">
+    <RouterLink class="btn btn-success mb-3" to="/admin-panel/category/new">
                 <i class="fa-solid fa-plus"></i> Add new Category
     </RouterLink> 
    <table class="table table-striped table-hover">
@@ -40,7 +40,7 @@ import { ref } from 'vue';
       <td>{{ formatDate(t.updatedAt) }}</td>
       <td>
         <div class="btn-group">
-          <RouterLink class="btn btn-sm btn-primary" :to="`/category/${t.categoryId}`">
+          <RouterLink class="btn btn-sm btn-primary" :to="`/admin-panel/category/${t.categoryId}`">
             <i class="fa-solid fa-circle-info"></i> Details
           </RouterLink>
           <button type="button" class="btn btn-sm btn-danger ms-2" @click="removeCategory(t)">

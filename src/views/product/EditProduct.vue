@@ -20,7 +20,7 @@ ProductService.getProductById(id).then(rsp => product.value = rsp.data)
 function updateProduct(){
     ProductService.updateProduct(id , product.value).then(rsp=>{
         router.push({
-            path:'/product'
+            path:'/admin-panel/product'
         })
     })
 }
@@ -31,7 +31,7 @@ function updateProduct(){
 <template>
     <div v-if = "product">
         <h1 class="h3">Edit Product</h1>
-        <RouterLink class="btn btn-danger mb-3" to="/product/new">
+        <RouterLink class="btn btn-danger mb-3" to="/admin-panel/product/new">
                 <i class="fa-solid fa-rotate-left"></i> Return to product list
     </RouterLink> 
         <div class="mb-3">

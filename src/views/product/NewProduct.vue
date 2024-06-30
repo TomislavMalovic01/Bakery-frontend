@@ -11,13 +11,14 @@ const product = ref<any>({
     description: '',
     price: 0,
     energyValiue: 0 ,
-    categoryId : 0
+    categoryId : 0,
+    image:''
 });
 
 function saveProduct() {
     ProductService.saveProduct(product.value).then(rsp => {
         router.push({ 
-            path: '/product' 
+            path: '/admin-panel/product' 
         });
     })
 }
@@ -26,7 +27,7 @@ function saveProduct() {
 <template>
     <div v-if="product">
         <h1 class="h3">Create Product</h1>
-        <RouterLink class="btn btn-danger mb-3" to="/product">
+        <RouterLink class="btn btn-danger mb-3" to="/admin-panel/product">
             <i class="fa-solid fa-rotate-left"></i> Return to product list
         </RouterLink> 
 
@@ -63,6 +64,17 @@ function saveProduct() {
             <option :value="3">3</option>
                 </select>
         </div>
+
+        <div class="mb-3">
+            <label for="image-url" class="form-label">Image Url</label>
+            <input type="text" class="form-control" id="image-url" v-model="product.image">
+        </div>
+
+        <div class="mb-3">
+            <img :src="product.image">
+        </div>
+
+        
 
         <button type="button" class="btn btn-success" @click="saveProduct">
             <i class="fa-solid fa-save"></i> Save

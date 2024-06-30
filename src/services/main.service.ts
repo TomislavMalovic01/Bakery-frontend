@@ -1,3 +1,4 @@
+
 import axios, { AxiosError, type AxiosResponse } from "axios";
 import { AuthService } from "./auth.service";
 
@@ -13,7 +14,6 @@ const client = axios.create({
 
 })
 
-
 export async function login(username: string, password: string){
     return await client.request({
         url:'/user/login',
@@ -25,8 +25,6 @@ export async function login(username: string, password: string){
     })
 
 }
-
-
 
 export async function useAxios(path: string, method = 'get', payload = {}) {
 
@@ -50,7 +48,7 @@ export async function useAxios(path: string, method = 'get', payload = {}) {
 
     if (rsp == undefined || rsp.status == 401) {
         window.location.href = "/login"
-        return
+        
     }
 
 
@@ -82,7 +80,7 @@ export async function useAxios(path: string, method = 'get', payload = {}) {
         }
     }
 
-    if (rsp.status == 404) {
+    if (rsp.status == 404 || rsp.status == undefined) {
         throw new Error('NOT_FOUND')
     }
 
@@ -92,10 +90,7 @@ export async function useAxios(path: string, method = 'get', payload = {}) {
 
 
 export function formatDate(iso: string) {
-    if (iso == null) return 'N/A'
+    if (iso == null ) return 'N/A'
     return new Date(iso).toLocaleString('sr-RS')
 
 }
-
-
-

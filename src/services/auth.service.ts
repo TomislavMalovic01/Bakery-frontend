@@ -1,5 +1,7 @@
 import type { AuthModel } from "@/models/auth.model"
 
+
+
     export class AuthService {
         public static saveAuth(model: AuthModel) {
             localStorage.clear()
@@ -32,4 +34,9 @@ import type { AuthModel } from "@/models/auth.model"
         public static clearAuth() {
             localStorage.clear()
         }
+
+        
+
+        
+        
     }

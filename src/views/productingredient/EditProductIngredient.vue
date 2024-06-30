@@ -23,7 +23,7 @@ const ingredients = ref<any[]>([]);
 
 const productingredient = ref<ProductIngredientModel>()
   ProductIngredientService.getProductIngredientById(id).then(rsp => {
-    const data:ProductIngredientModel =  rsp.data;
+    const data:ProductIngredientModel = rsp.data;
     productingredient.value = {
         ...data,
         ingredients: data.ingredients.map(ingredient => ({
@@ -37,7 +37,7 @@ function updateProductIngredient(ingredientId: number, oldIngredientId: number){
     const pi = {productId: id, ingredientId: ingredientId}
     ProductIngredientService.updateProductIngredient(id, oldIngredientId, pi).then(rsp=>{
         router.push({
-            path:'/productingredient'
+            path:'/admin-panel/productingredient'
         })
     })
 }
@@ -54,17 +54,12 @@ async function deleteProductIngredientInEdit(oldIngredientId: number) {
   }
 }
 
-
-
-
-
-
 </script>
 
 <template>
     <div v-if = "productingredient">
         <h1 class="h3">Edit Product</h1>
-        <RouterLink class="btn btn-danger mb-3" to="/productingredient">
+        <RouterLink class="btn btn-danger mb-3" to="/admin-panel/productingredient">
                 <i class="fa-solid fa-rotate-left"></i> Return to product ingredient
     </RouterLink> 
   <div class="mb-3">

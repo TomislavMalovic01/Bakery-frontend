@@ -18,7 +18,6 @@ export class ProductIngredientService {
     }
 
     static async updateProductIngredient(productId: number, ingredientId: number, data: any) {
-        console.log("FRONT SERVIS", productId, ingredientId, data)
         return await useAxios(`/productingredient/${productId}/${ingredientId}`, 'put', data);
     }
 

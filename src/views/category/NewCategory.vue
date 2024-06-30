@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CategoryService } from '@/services/category.service copy';
+import { CategoryService } from '@/services/category.service';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -13,7 +13,7 @@ const category = ref<any>({
 function saveCategory() {
     CategoryService.saveCategory(category.value).then(rsp => {
         router.push({ 
-            path: '/category' 
+            path: '/admin-panel/category' 
         });
     })
 }
