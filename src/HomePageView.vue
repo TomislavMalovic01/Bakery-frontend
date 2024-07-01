@@ -75,6 +75,126 @@ onMounted(() => {
 
 
 
+<div class="review" id="Review">
+        <h1>Customer<span>Review</span></h1>
+
+        <div class="review_box">
+            <div class="review_card">
+
+                <div class="review_profile">
+                    <img src="./assets/chef3.jpg">
+                </div>
+
+                <div class="review_text">
+                    <h2 class="name">John Deo</h2>
+
+                    <div class="review_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+
+                    <div class="review_social">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus quam facere 
+                        blanditiis in fugiat tempore necessitatibus aliquid. Id adipisci, rem corrupti 
+                        asperiores distinctio delectus quae quia tenetur totam laboriosam quam. Lorem ipsum, 
+                        dolor sit amet consectetur adipisicing elit. Dolores soluta ullam ipsa voluptates 
+                        repudiandae dignissimos deleniti mollitia eum. Laudantium placeat velit nemo illo 
+                        pariatur. 
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="review_card">
+
+                <div class="review_profile">
+                    <img src="./assets/chef3.jpg">
+                </div>
+
+                <div class="review_text">
+                    <h2 class="name">John Deo</h2>
+
+                    <div class="review_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+
+                    <div class="review_social">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus quam facere 
+                        blanditiis in fugiat tempore necessitatibus aliquid. Id adipisci, rem corrupti 
+                        asperiores distinctio delectus quae quia tenetur totam laboriosam quam. Lorem ipsum, 
+                        dolor sit amet consectetur adipisicing elit. Dolores soluta ullam ipsa voluptates 
+                        repudiandae dignissimos deleniti mollitia eum. Laudantium placeat velit nemo illo 
+                        pariatur. 
+                    </p>
+
+                </div>
+                
+
+            </div>
+
+            <div class="review_card">
+
+<div class="review_profile">
+    <img src="./assets/chef3.jpg">
+</div>
+
+<div class="review_text">
+    <h2 class="name">John Deo</h2>
+
+    <div class="review_icon">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half-stroke"></i>
+    </div>
+
+    <div class="review_social">
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-linkedin-in"></i>
+    </div>
+
+    <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus quam facere 
+        blanditiis in fugiat tempore necessitatibus aliquid. Id adipisci, rem corrupti 
+        asperiores distinctio delectus quae quia tenetur totam laboriosam quam. Lorem ipsum, 
+        dolor sit amet consectetur adipisicing elit. Dolores soluta ullam ipsa voluptates 
+        repudiandae dignissimos deleniti mollitia eum. Laudantium placeat velit nemo illo 
+        pariatur.
+    </p>
+
+</div>
+
+
+</div>
+        </div>
+    </div>
+
+
 <div class="team">
     <h1>Our<span>Team</span></h1>
 
@@ -134,6 +254,7 @@ onMounted(() => {
 
 </div>
 
+
 <footer class="footer">
   	 <div class="container">
   	 	<div class="row">
@@ -186,6 +307,136 @@ onMounted(() => {
 </template>
 
 <style scoped>
+
+
+.review{
+    width: 100%;
+    height: 100vh;
+    padding: 70px 0;
+}
+
+.review h1{
+    font-size: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.review h1 span{
+    margin-left: 15px;
+    color: #fac031;
+    font-family: mv boli;
+}
+
+.review h1 span::after{
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #fac031;
+    position: relative;
+    bottom: 15px;
+    display: block;
+}
+
+.review .review_box{
+    width: 95%;
+    margin: 70px auto;
+    display: flex;
+}
+
+.review .review_box .review_card{
+    width: 350px;
+    height: 535px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    padding: 8px 20px;
+    margin: 0 8px;
+    background:#ab8322
+    
+}
+
+.review .review_box .review_card .review_profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 0.3s;
+}
+
+.review .review_box .review_card:hover .review_profile{
+    transform: translateY(-60px);
+}
+
+.review .review_box .review_card .review_profile img{
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 5px solid #cccccc;
+}
+
+.review .review_box .review_card .review_text{
+    text-align: center;
+}
+
+.review .review_box .review_card .review_text .name{
+    color: #000;
+    transition: 0.3s;
+}
+
+.review .review_box .review_card:hover .review_text .name{
+    transform: translateY(-50px);
+}
+
+.review .review_box .review_card .review_text .review_icon{
+    color: #fac031;
+    transition: 0.3s;
+}
+
+.review .review_box .review_card:hover .review_text .review_icon{
+    transform: translateY(-30px);
+}
+
+.review .review_box .review_card .review_text .review_social i{
+    margin: 5px 1px;
+    font-size: 15px;
+    opacity: 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.review .review_box .review_card:hover .review_text .review_social i{
+    opacity: 1;
+    transform: translateY(-8px);
+}
+
+.review .review_box .review_card .review_text p{
+    text-align: center;
+    line-height: 22px;
+    transition: 0.3s;
+}
+
+.review .review_box .review_card:hover .review_text p{
+    margin-top: 5px;
+}
+
+
+/*koemntari*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 * {
     margin: 0;
@@ -368,7 +619,7 @@ section nav ul li a::after {
     content: '';
     width: 0;
     height: 2px;
-    background: #fac031;
+    background:#bf9326;
     display: block;
     transition: 0.2s linear;
 }
@@ -456,6 +707,7 @@ section .main{
         height: 90vh;
         background-size: cover;
         background-position: center;
+        
     }
 
     .team h1{
@@ -470,6 +722,7 @@ section .main{
         color :#fac031;
         margin-left: 15px;
         font-family: mv boli;
+        
 
     }
 
@@ -490,7 +743,8 @@ section .main{
         align-items: center;
         justify-content: center;
         position: relative;
-        top:10%;
+        
+        top:25%;
 
     }
     
@@ -521,11 +775,14 @@ section .main{
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
         transition: 0.4s;
 
+        
     }
 
     .team .team_box .profile:hover{
       border-radius: 20px;
       height: 300px;
+      background: #fac031;
+      color: #000;
 
     }
 

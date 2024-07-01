@@ -5,12 +5,12 @@ import router from './router';
 import type { ProductModel } from './models/product.model';
 
 const search = ref<string>('');
-const products = ref<any[]>([]); // Čuvamo niz proizvoda
+const products = ref<ProductModel[]>([]); // Čuvamo niz proizvoda
+const selectedCategories = ref<number[]>([]);
 
-function goToProductDetails(product: ProductModel) {
-  console.log(product); // Provera objekta product u konzoli
-  
-  router.push({ name: 'ProductDetails', params: { id: product.toString() } });
+function goToProductDetails(productId: number | string) {
+  console.log(productId); // Provera id-a proizvoda u konzoli
+  router.push({ name: 'ProductDetails', params: { id: productId.toString() } });
 }
 
 // Funkcija za dohvatanje proizvoda sa servera
@@ -33,17 +33,30 @@ onMounted(() => {
 
 });
 
-const filteredProducts = computed(() => {  //reaguje na svaki put kad promeni search
-      return products.value.filter(product=> {
-        return product.name.toLowerCase().includes(search.value.toLowerCase());
-      });
-    });
+const filteredProducts = computed(() => {
+  return products.value.filter(product => {
+    const matchesName = product.name.toLowerCase().includes(search.value.toLowerCase());
+    const matchesCategory = selectedCategories.value.length === 0 || selectedCategories.value.includes(product.categoryId);
+    return matchesName && matchesCategory;
+  });
+});
+
+function toggleCategory(categoryId: number) {
+  const index = selectedCategories.value.indexOf(categoryId);
+  if (index === -1) {
+    selectedCategories.value.push(categoryId);
+  } else {
+    selectedCategories.value.splice(index, 1);
+  }
+}
 
 
 </script>
 
 <template>
 <section>
+
+    
 
     <nav>
             <div class="nav-section">
@@ -61,17 +74,37 @@ const filteredProducts = computed(() => {  //reaguje na svaki put kad promeni se
             </div>
     </nav>
 
-<div>
-    <div class="input-search">
-        <input type="text" class="form-control" id="search-box" v-model="search" />
-
-    </div>
-</div>
-
-
 
 <div class="menu" id="Menu" >
         <h1>Our<span>Menu</span></h1>
+
+        <div class="input-search">
+        <input type="text" class="form-control" id="search-box" v-model="search" placeholder=""/>
+
+    </div>
+
+    <div>
+    
+    <div class="category-checkboxes">
+        <label class="checkbox-label">
+            <input type="checkbox" :value="1" v-model="selectedCategories"  />
+            Lisnata peciva
+        </label>
+        <label class="checkbox-label">
+            <input type="checkbox" :value="2" v-model="selectedCategories" />
+            Kolaci
+        </label>
+        <label class="checkbox-label">
+            <input type="checkbox" :value="3" v-model="selectedCategories" />
+            Pite
+        </label>
+        <label class="checkbox-label">
+            <input type="checkbox" :value="4" v-model="selectedCategories" />
+            Hlebovi
+        </label>
+        <!-- Dodajte više kategorija po potrebi -->
+    </div>
+</div>
 
         <div class="menu_box" >
             <div class="menu_card" v-for="product in filteredProducts" :key="product.id">
@@ -85,12 +118,12 @@ const filteredProducts = computed(() => {  //reaguje na svaki put kad promeni se
                     <p>
                         {{ product.description }}
                     </p>
-                    <h3>{{product.price}}</h3>
+                    <h3>{{product.price}} $</h3>
                     <div class="menu_icon">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star-half-stroke"></i>
                     </div>
                     <a href="#" class="menu_btn" @click.prevent="goToProductDetails(product.productId)">More</a>
@@ -107,27 +140,28 @@ const filteredProducts = computed(() => {  //reaguje na svaki put kad promeni se
   	 <div class="container">
   	 	<div class="row">
   	 		<div class="footer-col">
-  	 			<h4>company</h4>
+  	 			<h4>Seeling markets</h4>
   	 			<ul>
-  	 				<li><a href="#">about us</a></li>
-  	 				<li><a href="#">our services</a></li>
-  	 				<li><a href="#">privacy policy</a></li>
-  	 				<li><a href="#">affiliate program</a></li>
+  	 				<li><a href="#"> Zemun</a></li>
+  	 				<li><a href="#"> Novi Beoagrad</a></li>
+  	 				<li><a href="#"> Vozdovac</a></li>
+  	 				<li><a href="#"> Zvezdara</a></li>
+                    <li><a href="#"> Zemun polje</a></li>
+                    <li><a href="#"> Novi Sad</a></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
-  	 			<h4>get help</h4>
+  	 			<h4>Contact</h4>
   	 			<ul>
-  	 				<li><a href="#">FAQ</a></li>
-  	 				<li><a href="#">shipping</a></li>
-  	 				<li><a href="#">returns</a></li>
-  	 				<li><a href="#">order status</a></li>
-  	 				<li><a href="#">payment options</a></li>
+  	 				<li><a href="#">Phone : </a> +381 51 961 630</li>
+  	 				<li><a href="#">Location : </a> Nikola Pasica 16,78000 Beograd, Srbija</li>
+  	 				<li><a href="#">EMAIL : </a>office@pekarabeograd.com</li>
+  	 			
   	 			</ul>
   	 		</div>
 
   	 		<div class="footer-col">
-  	 			<h4>follow us</h4>
+  	 			<h4>Follow us</h4>
   	 			<div class="social-links">
   	 				<a href="#"><i class="fab fa-facebook-f"></i></a>
   	 				<a href="#"><i class="fab fa-twitter"></i></a>
@@ -138,7 +172,7 @@ const filteredProducts = computed(() => {  //reaguje na svaki put kad promeni se
   	 		</div>
 
             <div class="footer-col">
-                <h4>Our location</h4>
+                <h4>Our Location</h4>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45287.428466534846!2d20.401822832472156!3d44.81210539536276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a7aacf76b2fad%3A0xc9ea0f79c5d3b5cf!2z0KHQutGA0L7QtyDQlNC-0LHRgNCwINCf0LXQutCw0YDQsA!5e0!3m2!1ssr!2srs!4v1719700145753!5m2!1ssr!2srs" width="500" height="350" style="border:15px;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
@@ -151,6 +185,43 @@ const filteredProducts = computed(() => {  //reaguje na svaki put kad promeni se
 
 
 <style>
+
+.category-checkboxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between checkboxes */
+    margin-top: 10px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #fac031;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+    background-color: #fac031;
+    border-color: #fac031;
+}
+
+.checkbox-label input[type="checkbox"]:hover {
+    border-color: #fac031;
+}
+
+
+
+
+
+
+
 
 
 .input-search {
