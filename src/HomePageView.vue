@@ -82,7 +82,7 @@ onMounted(() => {
             <div class="review_card">
 
                 <div class="review_profile">
-                    <img src="./assets/chef3.jpg">
+                    <img src="./assets/review1.png">
                 </div>
 
                 <div class="review_text">
@@ -119,7 +119,7 @@ onMounted(() => {
             <div class="review_card">
 
                 <div class="review_profile">
-                    <img src="./assets/chef3.jpg">
+                    <img src="./assets/review3.jpeg">
                 </div>
 
                 <div class="review_text">
@@ -715,7 +715,8 @@ section .main{
         align-items: center;
         justify-content: center;
         font-size: 55px;
-        margin-bottom: 30px
+        margin-bottom: -50px;
+        margin-top:40px;
     }
 
     .team h1 span{
